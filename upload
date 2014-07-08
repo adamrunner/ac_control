@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "uploading to development"
+rsync -e "ssh" -avz --exclude-from=excludedfiles.txt ./ deploy@192.168.1.60:~/ac_control/current/
+# if [[ $1 == 'assets' ]]; then
+#   ssh deploy@192.168.1.60 /home/deploy/run_deploy_steps.sh assets
+# else
+#   # ssh deploy@192.168.1.60 /home/deploy/run_deploy_steps.sh
+#   ssh deploy@192.168.1.60 sudo service nginx restart
+# fi
+exit 0

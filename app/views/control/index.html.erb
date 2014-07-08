@@ -1,0 +1,29 @@
+<%= form_tag("/control/update", remote:true, id:"control") %>
+<input type="hidden" id="command" name="command" />
+<div class="btn-group-vertical" id="btn-container">
+  <%=
+  button_tag({ type: :button, class: 'btn btn-primary', id: 'power', data:{command:'p'}}) do
+    icon('power-off', 'Power On/Off', class: 'fa-fw')
+  end
+  %>
+  <%=
+  button_tag({ type: :button, class: 'btn btn-primary', id: 'mode', data:{command:'m'}}) do
+    icon('refresh', 'Mode', class: 'fa-fw')
+  end
+  %>
+  <%=
+  button_tag({ type: :button, class: 'btn btn-primary', id:'fan-speed', data:{command:'s'}}) do
+    icon('gear', 'Fan Speed', class: 'fa-fw')
+  end
+  %>
+  <%=
+  button_tag({ type: :button, class: 'btn btn-primary', id:'temp-up', data:{command:'+'}}) do
+    icon('plus-circle', 'Temp Up', class: 'fa-fw')
+  end
+  %>
+  <%=
+  button_tag({ type: :button, class: 'btn btn-primary', id:'temp-down', data:{command:'-'}}) do
+    icon('minus-circle', 'Temp Down', class: 'fa-fw')
+  end
+  %>
+</div>
