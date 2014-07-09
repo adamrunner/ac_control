@@ -7,7 +7,10 @@ class ControlController < ApplicationController
     parity = SerialPort::NONE
 
     sp = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
-
-    sp.write(params[:command])
+    flash[:notice] = "Sent command successfully!"
+    render nothing:true, status: 200 if sp.write(params[:command])
+  rescue Exception => e
+    flash[:error] = e.message
+    render nothing: true, status: 500
   end
 end
