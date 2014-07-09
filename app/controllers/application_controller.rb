@@ -34,9 +34,8 @@ class ApplicationController < ActionController::Base
     [:error, :warning, :notice, :info, :keep].each do |type|
       if flash[type]
         return flash_map[type]
-      else
-        return :empty
       end
     end
+    return :empty
   end
 end
